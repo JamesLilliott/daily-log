@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('daily_logs', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->date('log_date');
+            $table->text('content')->nullable();
+            $table->integer('mood_score');
+            $table->integer('alcohol_units');
             $table->timestamps();
         });
     }

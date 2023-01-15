@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDailyLogRequest;
 use App\Http\Requests\UpdateDailyLogRequest;
 use App\Models\DailyLog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DailyLogController extends Controller
 {
@@ -27,16 +29,14 @@ class DailyLogController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'user_id' => 'required|integer',
-            'log_date' => 'required|date',
             'content' => 'required|string',
             'mood_score' => 'required|integer',
             'alcohol_units' => 'required|integer',
         ]);
 
         $dailyLog = new DailyLog();
-        $dailyLog->user_id = $validatedData['user_id'];
-        $dailyLog->log_date = $validatedData['log_date'];
+        $dailyLog->user_id = Auth::id();
+        $dailyLog->log_date = Carbon::now();
         $dailyLog->content = $validatedData['content'];
         $dailyLog->mood_score = $validatedData['mood_score'];
         $dailyLog->alcohol_units = $validatedData['alcohol_units'];

@@ -11,10 +11,7 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts manual-->
-        <link href="/build/assets/app-0c59a97d.css">
-        <link href="/build/assets/app-113fdd3a.js">
-        <link rel="stylesheet" href="build/assets/app-0c59a97d.css">
-        <script src="/build/assets/app-113fdd3a.js"></script>
+        <link rel="stylesheet" href="app.css">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -34,5 +31,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="app.js"></script>
     </body>
 </html>
